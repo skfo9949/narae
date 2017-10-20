@@ -102,4 +102,6 @@ public class BoardController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 	}
+	
+	
 }

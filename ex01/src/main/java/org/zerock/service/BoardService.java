@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.SearchCriteria;
 
 public interface BoardService {
 	public void regist(BoardVO board)throws Exception;
@@ -11,6 +12,12 @@ public interface BoardService {
 	public void modify(BoardVO board)throws Exception;
 	public void remove(Integer bno)throws Exception;
 	public List<BoardVO> listAll()throws Exception;
+
+	//페이징 처리 관련.
 	public List<BoardVO> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
+	
+	//검색관련.
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri)throws Exception;
+	public int listSearchCount(SearchCriteria cri)throws Exception;
 }
