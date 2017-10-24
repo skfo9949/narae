@@ -10,7 +10,7 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.3.3.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.6</org.aspectj-version>
+		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
@@ -161,35 +161,38 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.8.4</version>
 		</dependency>
+		
+		<!-- part4 -->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+ -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
+		</dependency> -->
+
 
 		<!-- https://mvnrepository.com/artifact/aspectj/aspectjrt -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
-
+ -->
 
 
 	</dependencies>
