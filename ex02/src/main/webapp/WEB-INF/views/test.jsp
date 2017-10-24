@@ -192,7 +192,8 @@
 			});
 		});
 		//닫기 버튼 클릭 시,
-		$("#closeBtn").on("click",function(){
+		$("#
+Btn").on("click",function(){
 			$("#modDiv").attr("style", "display: none;");
 		});
 
