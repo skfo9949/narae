@@ -97,7 +97,7 @@
 			<!-- The time line -->
 			<ul class="timeline">
 				<!-- timeline time label -->
-				<li class="time-label" id="repliesDiv"><span class="bg-grenn">
+				<li class="time-label" id="repliesDiv"><span class="bg-green">
 						Replies List</span></li>
 			</ul>
 			<div class='text-center'>
