@@ -28,6 +28,11 @@
 	<delete id="delete">
 		delete from tbl_reply where rno = #{rno}
 	</delete>
+	
+	<!-- 해당 bno의 댓글 전체 삭 --> 
+	<delete id="deleteAll">
+		delete from tbl_reply where bno=#{bno}
+	</delete>
 
 	<select id="listPage" resultType="ReplyVO">
 		select * from tbl_reply

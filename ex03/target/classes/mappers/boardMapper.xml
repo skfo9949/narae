@@ -12,7 +12,7 @@
 	<!-- select by bno -->
 	<select id="read" resultType="BoardVO">
 		select bno, title, content, writer,
-		regDate, viewcnt
+		regDate, viewcnt, replycnt
 		from tbl_board
 		where bno=#{bno}
 	</select>

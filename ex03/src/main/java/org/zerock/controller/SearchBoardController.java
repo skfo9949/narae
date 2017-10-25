@@ -54,6 +54,8 @@ public class SearchBoardController {
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
+		rttr.addFlashAttribute("msg", "success");
+		
 		return "redirect:/sboard/list";
 	}
 	

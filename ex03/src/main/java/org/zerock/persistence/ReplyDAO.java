@@ -25,4 +25,7 @@ public interface ReplyDAO {
 	
 	//게시물 번호 알아내기 위한 sql
 	public int getBno(Integer rno) throws Exception;
+	
+	//댓글 전체 삭제.
+	public void deleteAll(Integer bno)throws Exception;
 }

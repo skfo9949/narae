@@ -11,17 +11,20 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.SearchCriteria;
 import org.zerock.persistence.BoardDAO;
+import org.zerock.persistence.ReplyDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 	
 	@Inject
-	private BoardDAO dao;
+	private BoardDAO boardDAO;
 	
+	@Inject
+	private ReplyDAO replyDAO;
 	//등록.
 	@Override
 	public void regist(BoardVO board) throws Exception {
-		dao.create(board);
+		boardDAO.create(board);
 		
 	}
 
@@ -29,51 +32,53 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
-		dao.updateViewCnt(bno);
-		return dao.read(bno);
+		boardDAO.updateViewCnt(bno);
+		return boardDAO.read(bno);
 	}
 
 	//수정.
 	@Override
 	public void modify(BoardVO board) throws Exception {
-		dao.update(board);
+		boardDAO.update(board);
 	}
 
 	//삭제.
+	@Transactional
 	@Override
 	public void remove(Integer bno) throws Exception {
-		dao.delete(bno);
+		replyDAO.deleteAll(bno);
+		boardDAO.delete(bno);
 		
 	}
 
 	//목록 조회.
 	@Override
 	public List<BoardVO> listAll() throws Exception {
-		return dao.listAll();
+		return boardDAO.listAll();
 	}
 
 	//페이지 목록조회.
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-		return dao.listCriteria(cri);
+		return boardDAO.listCriteria(cri);
 	}
 
 	//페이지 수 조회.
 	@Override
 	public int listCountCriteria(Criteria cri) throws Exception {
-		return dao.countPaging(cri);
+		return boardDAO.countPaging(cri);
 	}
 
 	//검색관련 조회.
 	
 	@Override
 	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-		return dao.listSearch(cri);
+		return boardDAO.listSearch(cri);
 	}
 
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return dao.listSearchCount(cri);
+		return boardDAO.listSearchCount(cri);
 	}
 	
 	
