@@ -21,10 +21,20 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Inject
 	private ReplyDAO replyDAO;
+	
 	//등록.
+	@Transactional
 	@Override
 	public void regist(BoardVO board) throws Exception {
 		boardDAO.create(board);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null) {return;}
+		
+		for(String fileName : files) {
+			boardDAO.addAttach(fileName);
+		}
 		
 	}
 
@@ -37,9 +47,22 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	//수정.
+	@Transactional
 	@Override
 	public void modify(BoardVO board) throws Exception {
 		boardDAO.update(board);
+		
+		Integer bno = board.getBno();
+		
+		boardDAO.deleteAttach(bno);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null) {return;}
+		
+		for(String fileName: files) {
+			boardDAO.replaceAttach(fileName, bno);
+		}
 	}
 
 	//삭제.
@@ -47,6 +70,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void remove(Integer bno) throws Exception {
 		replyDAO.deleteAll(bno);
+		boardDAO.deleteAttach(bno);
 		boardDAO.delete(bno);
 		
 	}
@@ -79,6 +103,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return boardDAO.listSearchCount(cri);
+	}
+
+	@Override
+	public List<String> getAttach(Integer bno) throws Exception {
+		return boardDAO.getAttach(bno);
 	}
 	
 	

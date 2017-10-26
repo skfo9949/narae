@@ -20,4 +20,7 @@ public interface BoardService {
 	//검색관련.
 	public List<BoardVO> listSearchCriteria(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
+	
+	//첨부파일 조회.
+	public List<String> getAttach(Integer bno)throws Exception;
 }
